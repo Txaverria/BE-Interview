@@ -1,10 +1,13 @@
 // imports de los packages de node
 const express = require("express");
-const app = express();
+const connectDB = require("./config/db");
 require("dotenv").config();
 
 // routes
 const calculate = require("./routes/calculate");
+
+// crear el app para usar Express
+const app = express();
 
 // config del app de Express
 app.use(express.json());
