@@ -13,6 +13,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // no es obligatoriamente necesario siempre, pero es costumbre ponerlo.
 
+// conectar a mongodb
+connectDB();
+
 // instrucción para usar las rutas
 app.use("/api", calculate);
 
