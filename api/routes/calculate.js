@@ -89,7 +89,7 @@ router.post("/calculate", async (req, res) => {
           status: "error",
           code: 404,
           message: "Operación no soportada.",
-          details: `La operación '${operacion}' no está soportada. Usa una de las siguientes: +, -, *, /.`,
+          details: `La operación '${operacion}' no está soportada. Usa una de las siguientes: +, -, *, /`,
         });
     }
 
