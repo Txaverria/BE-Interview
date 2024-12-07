@@ -1,10 +1,9 @@
 // ruta principal para calcular
 const express = require("express");
 const router = express.Router();
+const Log = require("../models/Log"); // Asegúrate de que la ruta sea correcta
 
-// ruta en sí. Usé POST porque se está accediendo la ruta
-// y se le está mandando un paquete con el body
-router.post("/calculate", (req, res) => {
+router.post("/calculate", async (req, res) => {
   const { num1, num2, operacion } = req.body;
   let resultado;
 
@@ -14,6 +13,8 @@ router.post("/calculate", (req, res) => {
     }
     return a / b;
   }
+
+  const tiempoInicio = Date.now();
 
   try {
     switch (operacion) {
@@ -37,8 +38,19 @@ router.post("/calculate", (req, res) => {
         return res.status(400).json({ error: "Operación inválida." });
     }
 
+    const tiempoFin = Date.now();
+    const tiempoRespuesta = tiempoFin - tiempoInicio;
+
+    await Log.create({
+      operacion: operacion,
+      num1: num1,
+      num2: num2,
+      resultado: resultado,
+      timestamp: new Date(),
+      responseTime: tiempoRespuesta
+    });
+
     res.json({ resultado: resultado });
-    console.log(req.body);
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
