@@ -22,5 +22,5 @@ app.use("/api", calculate);
 // puerto y listen creados
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`App corriendo en el port: ${port}`);
 });
