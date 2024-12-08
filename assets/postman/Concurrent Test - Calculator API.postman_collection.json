@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "d06c4c6b-e485-4c74-b9ac-7bdc3d49d12d",
+		"name": "Concurrent Test - Calculator API",
+		"description": "This Postman collection is designed to test the **Calculator API v2** for its ability to handle concurrent requests efficiently. The collection includes multiple test cases that cover:\n\n1. **Basic Operations:** Valid requests for addition, subtraction, multiplication, and division.\n    \n2. **Edge Cases:** Handling division by zero, large numbers, and invalid operations.\n    \n3. **Performance Testing:** Simulating concurrent users to evaluate response times and consistency.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34053585"
+	},
+	"item": [
+		{
+			"name": "Do normal division",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 7,\r\n  \"num2\": 4,\r\n  \"operacion\": \"/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Do normal sum",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 10,\r\n  \"num2\": 5,\r\n  \"operacion\": \"+\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Do normal multiplication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 2,\r\n  \"num2\": 4,\r\n  \"operacion\": \"*\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Do normal substraction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 15,\r\n  \"num2\": 4,\r\n  \"operacion\": \"-\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edge Case 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 15,\r\n  \"num2\": 0,\r\n  \"operacion\": \"/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edge Case 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"num1\": 153453453453455,\r\n  \"num2\": 43123123,\r\n  \"operacion\": \"*\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edge Case 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"operacion\": \"*fdsd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

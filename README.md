@@ -11,32 +11,32 @@ A scalable API for basic arithmetic operations with features like input validati
 
 ## **Progress**
 
-- [ ] **API Endpoint**: Accepts two numbers and an operation type.
-- [ ] **Supported Operations**: Addition (+), Subtraction (-), Multiplication (*), Division (/).
+- [x] **API Endpoint**: Accepts two numbers and an operation type.
+- [x] **Supported Operations**: Addition (+), Subtraction (-), Multiplication (*), Division (/).
 
-- [ ] **Asynchronous Processing**: Use asynchronous handling (e.g., Promises) to ensure a non-blocking API flow.
+- [x] **Asynchronous Processing**: Use asynchronous handling (e.g., Promises) to ensure a non-blocking API flow.
 
-- [ ] **Database Integration**: Log all requests and responses in a MongoDB database, including:
-  - [ ] Operation type.
-  - [ ] Input numbers.
-  - [ ] Calculated result.
-  - [ ] Request timestamp.
-  - [ ] Response time.
+- [x] **Database Integration**: Log all requests and responses in a MongoDB database, including:
+  - [x] Operation type.
+  - [x] Input numbers.
+  - [x] Calculated result.
+  - [x] Request timestamp.
+  - [x] Response time.
 
-- [ ] **Caching**: Implement Redis to cache results for repeated calculations with a TTL (e.g., 60 seconds).
+- [x] **Caching**: Implement Redis to cache results for repeated calculations with a TTL (e.g., 60 seconds).
 
-- [ ] **Input Validation**: Validate inputs using libraries like Joi or Yup to handle:
-  - [ ] Non-numeric inputs.
-  - [ ] Division by zero.
-  - [ ] Missing/invalid operation type.
-  - [ ] Excessive input size.
+- [x] **Input Validation**: Validate inputs using libraries like Joi or Yup to handle:
+  - [x] Non-numeric inputs.
+  - [x] Division by zero.
+  - [x] Missing/invalid operation type.
+  - [x] Excessive input size.
 
-- [ ] **Error Handling**: Return detailed error messages in a consistent JSON format with appropriate HTTP status codes:
-  - [ ] `400 Bad Request` for invalid inputs.
-  - [ ] `404 Not Found` for unsupported operations.
-  - [ ] `500 Internal Server Error` for unexpected issues.
+- [x] **Error Handling**: Return detailed error messages in a consistent JSON format with appropriate HTTP status codes:
+  - [x] `400 Bad Request` for invalid inputs.
+  - [x] `404 Not Found` for unsupported operations.
+  - [x] `500 Internal Server Error` for unexpected issues.
 
-- [ ] **Response Format**: Return results in a JSON structure:
+- [x] **Response Format**: Return results in a JSON structure:
   ```json
   {
       "status": "success",
@@ -51,7 +51,11 @@ A scalable API for basic arithmetic operations with features like input validati
   }
   ```
 
-- [ ] **Scalability**: Ensure the API is stateless and handles concurrent requests efficiently.
+- [x] **Scalability**: Ensure the API is stateless and handles concurrent requests efficiently.
+  - [x] Concurrent testing done with Postman. Download the [Postman Collection](./assets/postman/Concurrent%20Test%20-%20Calculator%20API.postman_collection.json) to replicate the tests.
+
+  - ![Postman Tests](./assets/postman/postman-tests.png)
+
 
 - [ ] **Deployability**: Deploy with scalable tools like Docker and Kubernetes.
 
@@ -76,7 +80,7 @@ A scalable API for basic arithmetic operations with features like input validati
 - [ ] **Monitoring**: Use tools like Prometheus and Grafana for health, latency, and error rate tracking.
   - [ ] Log performance metrics centrally with tools like ElasticSearch or CloudWatch.
 
-- [ ] **Versioning**: Implement versioning (e.g., `/v1/`) to accommodate future updates without disrupting existing clients.
+- [x] **Versioning**: Implement versioning (e.g., `/v1/`) to accommodate future updates without disrupting existing clients.
 
 ---
 
