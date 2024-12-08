@@ -1,3 +1,61 @@
+# Calculator API
+
+![Node.js](https://img.shields.io/badge/Node.js-16.x-green)
+![Express](https://img.shields.io/badge/Express-4.x-blue)
+![MongoDB](https://img.shields.io/badge/MongoDB-5.x-brightgreen)
+![Redis](https://img.shields.io/badge/Redis-6.x-red)
+![Docker](https://img.shields.io/badge/Docker-20.x-blue)
+![Postman](https://img.shields.io/badge/Postman-Test-orange)
+
+A scalable API for basic arithmetic operations with features like input validation, caching, error handling, and monitoring.
+
+## **Progress**
+
+### Core Features
+
+- [x] Arithmetic operations (+, -, \*, /).
+- [x] MongoDB logging (inputs, outputs, timestamps).
+- [x] Redis caching (TTL: 60 seconds).
+
+### Advanced Features
+
+- [ ] Input validation (e.g., non-numeric inputs, division by zero).
+- [ ] Consistent error handling (`400`, `404`, `500`).
+- [ ] JSON response structure.
+- [ ] Stateless API and scalability (Docker, Kubernetes).
+- [ ] HTTPS, rate-limiting, CORS, and input sanitization.
+- [ ] Testing (unit, integration).
+- [ ] API documentation (Swagger/OpenAPI).
+- [ ] Cloud deployment (AWS/GCP/Azure).
+- [ ] Monitoring (Prometheus, Grafana, ElasticSearch).
+
+---
+
+## **Usage**
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-repo/calculator-api.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure `.env`:
+   ```plaintext
+   PORT=3000
+   REDIS_HOST=localhost
+   REDIS_PORT=6379
+   MONGO_URI=mongodb://localhost:27017/calculator-api
+   ```
+4. Start the server:
+   ```bash
+   npm start
+   ```
+5. Access the API: `http://localhost:3000/api/v2/calculate`
+
+## **Original Project Instructions**
+
 This project outlines the development of a scalable, secure, and efficient API endpoint for basic arithmetic operations with the following key features and requirements:
 
 ### **Core Functionality**
