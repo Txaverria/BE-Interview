@@ -54,7 +54,7 @@ A scalable API for basic arithmetic operations with features like input validati
 - [x] **Scalability**: Ensure the API is stateless and handles concurrent requests efficiently.
   - [x] Concurrent testing done with Postman. Download the [Postman Collection](./assets/postman/Concurrent%20Test%20-%20Calculator%20API.postman_collection.json) to replicate the tests.
 
-  - ![Postman Tests](./assets/postman/postman-tests.png)
+![Postman Tests](./assets/postman/postman-tests.png)
 
 
 - [ ] **Deployability**: Deploy with scalable tools like Docker and Kubernetes.
