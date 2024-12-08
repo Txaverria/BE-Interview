@@ -5,6 +5,7 @@ require("dotenv").config();
 
 // routes
 const calculateV1 = require("./routes/v1/calculate");
+const calculateV2 = require("./routes/v2/calculate");
 
 // crear el app para usar Express
 const app = express();
@@ -18,6 +19,7 @@ connectDB();
 
 // instrucción para usar las rutas
 app.use("/api/v1", calculateV1);
+app.use("/api/v2", calculateV2);
 
 // puerto y listen creados
 const port = process.env.PORT || 3000;
