@@ -1,4 +1,4 @@
-// ruta principal para calcular
+// ruta principal para calcular (v2)
 const express = require("express");
 const router = express.Router();
 const Log = require("../../models/Log");
