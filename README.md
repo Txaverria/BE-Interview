@@ -11,8 +11,6 @@ A scalable API for basic arithmetic operations with features like input validati
 
 ## **Progress**
 
-# Feature Checklist
-
 - [ ] **API Endpoint**: Accepts two numbers and an operation type.
 - [ ] **Supported Operations**: Addition (+), Subtraction (-), Multiplication (*), Division (/).
 
