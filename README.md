@@ -11,23 +11,74 @@ A scalable API for basic arithmetic operations with features like input validati
 
 ## **Progress**
 
-### Core Features
+# Feature Checklist
 
-- [x] Arithmetic operations (+, -, \*, /).
-- [x] MongoDB logging (inputs, outputs, timestamps).
-- [x] Redis caching (TTL: 60 seconds).
+- [ ] **API Endpoint**: Accepts two numbers and an operation type.
+- [ ] **Supported Operations**: Addition (+), Subtraction (-), Multiplication (*), Division (/).
 
-### Advanced Features
+- [ ] **Asynchronous Processing**: Use asynchronous handling (e.g., Promises) to ensure a non-blocking API flow.
 
-- [ ] Input validation (e.g., non-numeric inputs, division by zero).
-- [ ] Consistent error handling (`400`, `404`, `500`).
-- [ ] JSON response structure.
-- [ ] Stateless API and scalability (Docker, Kubernetes).
-- [ ] HTTPS, rate-limiting, CORS, and input sanitization.
-- [ ] Testing (unit, integration).
-- [ ] API documentation (Swagger/OpenAPI).
-- [ ] Cloud deployment (AWS/GCP/Azure).
-- [ ] Monitoring (Prometheus, Grafana, ElasticSearch).
+- [ ] **Database Integration**: Log all requests and responses in a MongoDB database, including:
+  - [ ] Operation type.
+  - [ ] Input numbers.
+  - [ ] Calculated result.
+  - [ ] Request timestamp.
+  - [ ] Response time.
+
+- [ ] **Caching**: Implement Redis to cache results for repeated calculations with a TTL (e.g., 60 seconds).
+
+- [ ] **Input Validation**: Validate inputs using libraries like Joi or Yup to handle:
+  - [ ] Non-numeric inputs.
+  - [ ] Division by zero.
+  - [ ] Missing/invalid operation type.
+  - [ ] Excessive input size.
+
+- [ ] **Error Handling**: Return detailed error messages in a consistent JSON format with appropriate HTTP status codes:
+  - [ ] `400 Bad Request` for invalid inputs.
+  - [ ] `404 Not Found` for unsupported operations.
+  - [ ] `500 Internal Server Error` for unexpected issues.
+
+- [ ] **Response Format**: Return results in a JSON structure:
+  ```json
+  {
+      "status": "success",
+      "operation": "<operation>",
+      "inputs": {
+          "number1": <number1>,
+          "number2": <number2>
+      },
+      "result": <result>,
+      "timestamp": "<timestamp>",
+      "responseTime": "<response_time_in_ms>"
+  }
+  ```
+
+- [ ] **Scalability**: Ensure the API is stateless and handles concurrent requests efficiently.
+
+- [ ] **Deployability**: Deploy with scalable tools like Docker and Kubernetes.
+
+- [ ] **Security**: Use HTTPS for secure communication.
+  - [ ] Implement rate-limiting to prevent abuse.
+  - [ ] Sanitize inputs to guard against injection attacks.
+  - [ ] Protect sensitive data and handle CORS.
+
+- [ ] **Testing**: Create unit and integration tests for:
+  - [ ] Successful operations.
+  - [ ] Edge cases (e.g., division by zero).
+  - [ ] Error-handling scenarios.
+
+- [ ] **Testing Frameworks**: Use testing frameworks like Jest or Mocha.
+
+- [ ] **API Documentation**: Provide comprehensive Swagger/OpenAPI documentation detailing endpoints, parameters, and example responses.
+
+- [ ] **Deployment**: Deploy to a cloud platform like AWS, GCP, or Azure.
+
+- [ ] **CI/CD**: Use CI/CD pipelines for automated testing and seamless deployment.
+
+- [ ] **Monitoring**: Use tools like Prometheus and Grafana for health, latency, and error rate tracking.
+  - [ ] Log performance metrics centrally with tools like ElasticSearch or CloudWatch.
+
+- [ ] **Versioning**: Implement versioning (e.g., `/v1/`) to accommodate future updates without disrupting existing clients.
 
 ---
 
@@ -35,7 +86,7 @@ A scalable API for basic arithmetic operations with features like input validati
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-repo/calculator-api.git
+   git clone https://github.com/Txaverria/Calculate-API-Endpoint.git
    ```
 2. Install dependencies:
    ```bash
@@ -46,13 +97,13 @@ A scalable API for basic arithmetic operations with features like input validati
    PORT=3000
    REDIS_HOST=localhost
    REDIS_PORT=6379
-   MONGO_URI=mongodb://localhost:27017/calculator-api
+   MONGO_URI=INPUT_YOUR_OWN_MONGO_URI
    ```
 4. Start the server:
    ```bash
    npm start
    ```
-5. Access the API: `http://localhost:3000/api/v2/calculate`
+5. Access the API: `http://localhost:3000/api/v2/calculate` (for the v2 version incl)
 
 ## **Original Project Instructions**
 
