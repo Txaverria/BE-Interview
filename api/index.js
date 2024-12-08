@@ -4,7 +4,7 @@ const connectDB = require("./config/db");
 require("dotenv").config();
 
 // routes
-const calculate = require("./routes/calculate");
+const calculateV1 = require("./routes/v1/calculate");
 
 // crear el app para usar Express
 const app = express();
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true })); // no es obligatoriamente neces
 connectDB();
 
 // instrucción para usar las rutas
-app.use("/api", calculate);
+app.use("/api/v1", calculateV1);
 
 // puerto y listen creados
 const port = process.env.PORT || 3000;

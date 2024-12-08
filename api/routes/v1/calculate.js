@@ -1,9 +1,9 @@
 // ruta principal para calcular
 const express = require("express");
 const router = express.Router();
-const Log = require("../models/Log");
-const redisClient = require("../config/redis");
-const calculationSchema = require("../validation/calculationSchema");
+const Log = require("../../models/Log");
+const redisClient = require("../../config/redis");
+const calculationSchema = require("../../validation/calculationSchema");
 
 router.post("/calculate", async (req, res) => {
   const { error, value } = calculationSchema.validate(req.body, { abortEarly: false });
