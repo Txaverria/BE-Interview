@@ -13,7 +13,7 @@ A scalable API for basic arithmetic operations with features like input validati
 ## **Progress**
 
 - [x] **API Endpoint**: Accepts two numbers and an operation type.
-- [x] **Supported Operations**: Addition (+), Subtraction (-), Multiplication (\*), Division (/).
+- [x] **Supported Operations**: Addition (`+`), Subtraction (`-`), Multiplication (`*`), Division (`/`).
 
 - [x] **Asynchronous Processing**: Use asynchronous handling (e.g., Promises) to ensure a non-blocking API flow.
 
