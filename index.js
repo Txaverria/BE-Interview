@@ -4,6 +4,7 @@ require("dotenv").config();
 const fs = require("fs");
 const https = require("https");
 const rateLimit = require("express-rate-limit");
+const cors = require("cors");
 
 // routes
 const calculateV1 = require("./routes/v1/calculate");
@@ -15,6 +16,21 @@ const app = express();
 // config del app de Express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // no es obligatoriamente necesario siempre, pero es costumbre ponerlo.
+
+// configurar CORS
+const corsOptions = {
+  origin: 'Este sería el domain para CORS', 
+  methods: ["POST"], 
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+// Si estamos en development entonces permitimos todos los orígenes
+if (process.env.NODE_ENV === "dev") {
+  app.use(cors());
+} else {
+  app.use(cors(corsOptions));
+}
 
 // configurar rate-limiting
 const apiLimiter = rateLimit({
