@@ -1,11 +1,12 @@
 # Calculator API
 
-![Node.js](https://img.shields.io/badge/Node.js-16.x-green)
+![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
 ![Express](https://img.shields.io/badge/Express-4.x-blue)
-![MongoDB](https://img.shields.io/badge/MongoDB-5.x-brightgreen)
-![Redis](https://img.shields.io/badge/Redis-6.x-red)
+![MongoDB](https://img.shields.io/badge/MongoDB-8.x-brightgreen)
+![Redis](https://img.shields.io/badge/Redis-4.x-red)
 ![Docker](https://img.shields.io/badge/Docker-20.x-blue)
 ![Postman](https://img.shields.io/badge/Postman-Test-orange)
+![Jest](https://img.shields.io/badge/Jest-29.x-yellow)
 
 A scalable API for basic arithmetic operations with features like input validation, caching, error handling, and monitoring.
 
@@ -80,12 +81,12 @@ A scalable API for basic arithmetic operations with features like input validati
 
 - [X] **API Documentation**: Provide comprehensive Swagger/OpenAPI documentation detailing endpoints, parameters, and example responses.
 
-- [ ] **Deployment**: Deploy to a cloud platform like AWS, GCP, or Azure.
+- **Deployment**
+  - [ ] Deploy to a cloud platform like AWS, GCP, or Azure.
+  - [ ] Use CI/CD pipelines for automated testing and seamless deployment.
 
-- [ ] **CI/CD**: Use CI/CD pipelines for automated testing and seamless deployment.
-
-- [ ] **Monitoring**: Use tools like Prometheus and Grafana for health, latency, and error rate tracking.
-
+- **Monitoring**
+  - [ ] Use tools like Prometheus and Grafana for health, latency, and error rate tracking.
   - [ ] Log performance metrics centrally with tools like ElasticSearch or CloudWatch.
 
 - [x] **Versioning**: Implement versioning (e.g., `/v1/`) to accommodate future updates without disrupting existing clients.
@@ -114,8 +115,6 @@ A scalable API for basic arithmetic operations with features like input validati
    npm start
    ```
 5. Access the API: `http://localhost:3000/api/v2/calculate` (for the v2 version incl)
-
-6. Access the API documentation: `http://localhost:3000/api-docs/` (interactive Swagger documentation)
 
 ## **Running the Application with Docker**
 
@@ -199,106 +198,3 @@ docker network rm my_app_network
 - Modify the `.env` file as needed to customize your Redis or application configuration.
 - Ensure Docker is running before executing the commands.
 - Update the `Dockerfile` and `.dockerignore` as necessary for your project's needs.
-
-## **Original Project Instructions**
-
-This project outlines the development of a scalable, secure, and efficient API endpoint for basic arithmetic operations with the following key features and requirements:
-
-### **Core Functionality**
-
-- **API Endpoint**: Accepts two numbers and an operation type.
-- **Supported Operations**: Addition (+), Subtraction (-), Multiplication (\*), Division (/).
-
----
-
-### **Advanced Requirements**
-
-#### **Backend Architecture**
-
-1. **Asynchronous Processing**:
-   - Use asynchronous handling (e.g., Promises) to ensure a non-blocking API flow.
-2. **Database Integration**:
-   - Log all requests and responses in a MongoDB database, including:
-     - Operation type.
-     - Input numbers.
-     - Calculated result.
-     - Request timestamp.
-     - Response time.
-3. **Caching**:
-   - Implement Redis to cache results for repeated calculations with a TTL (e.g., 60 seconds).
-
-#### **Input Validation**
-
-- Validate inputs using libraries like Joi or Yup to handle:
-  - Non-numeric inputs.
-  - Division by zero.
-  - Missing/invalid operation type.
-  - Excessive input size.
-
-#### **Error Handling**
-
-- Return detailed error messages in a consistent JSON format with appropriate HTTP status codes:
-  - `400 Bad Request` for invalid inputs.
-  - `404 Not Found` for unsupported operations.
-  - `500 Internal Server Error` for unexpected issues.
-
-#### **Response Format**
-
-- Return results in a JSON structure:
-  ```json
-  {
-      "status": "success",
-      "operation": "<operation>",
-      "inputs": {
-          "number1": <number1>,
-          "number2": <number2>
-      },
-      "result": <result>,
-      "timestamp": "<timestamp>",
-      "responseTime": "<response_time_in_ms>"
-  }
-  ```
-
----
-
-### **Additional Requirements**
-
-#### **Scalability**
-
-- Ensure the API is stateless and handles concurrent requests efficiently.
-- Deploy with scalable tools like Docker and Kubernetes.
-
-#### **Security**
-
-- Use HTTPS for secure communication.
-- Implement rate-limiting to prevent abuse.
-- Sanitize inputs to guard against injection attacks.
-- Protect sensitive data and handle CORS.
-
-#### **Testing**
-
-- Create unit and integration tests for:
-  - Successful operations.
-  - Edge cases (e.g., division by zero).
-  - Error-handling scenarios.
-- Use testing frameworks like Jest or Mocha.
-
-#### **API Documentation**
-
-- Provide comprehensive Swagger/OpenAPI documentation detailing endpoints, parameters, and example responses.
-
-#### **Deployment**
-
-- Deploy to a cloud platform like AWS, GCP, or Azure.
-- Use CI/CD pipelines for automated testing and seamless deployment.
-
-#### **Monitoring**
-
-- Use tools like Prometheus and Grafana for health, latency, and error rate tracking.
-- Log performance metrics centrally with tools like ElasticSearch or CloudWatch.
-
-#### **Versioning**
-
-- Implement versioning (e.g., `/v1/`) to accommodate future updates without disrupting existing clients.
-
-This project ensures a robust, user-friendly API designed for efficiency, scalability, and security.
