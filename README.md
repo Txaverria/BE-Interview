@@ -66,8 +66,8 @@ A scalable API for basic arithmetic operations with features like input validati
 
 - [X] **Security**: Use HTTPS for secure communication.
 
-  - [ ] Implement rate-limiting to prevent abuse.
-  - [ ] Sanitize inputs to guard against injection attacks.
+  - [X] Implement rate-limiting to prevent abuse.
+  - [X] Sanitize inputs to guard against injection attacks.
   - [ ] Protect sensitive data and handle CORS.
 
 - [ ] **Testing**: Create unit and integration tests for:
