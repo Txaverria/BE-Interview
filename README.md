@@ -115,6 +115,8 @@ A scalable API for basic arithmetic operations with features like input validati
    ```
 5. Access the API: `http://localhost:3000/api/v2/calculate` (for the v2 version incl)
 
+6. Access the API documentation: `http://localhost:3000/api-docs/` (interactive Swagger documentation)
+
 ## **Running the Application with Docker**
 
 Follow these steps to run the application using Docker. Ensure you have Docker installed and running on your system.
