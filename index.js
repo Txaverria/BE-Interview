@@ -2,6 +2,8 @@
 const express = require("express");
 const connectDB = require("./config/db");
 require("dotenv").config();
+const fs = require("fs");
+const https = require("https");
 
 // routes
 const calculateV1 = require("./routes/v1/calculate");
@@ -23,6 +25,13 @@ app.use("/api/v2", calculateV2);
 
 // puerto y listen creados
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`App corriendo en el port: ${port}`);
+
+const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, "utf8");
+const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, "utf8");
+const credentials = { key: privateKey, cert: certificate };
+
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(port, () => {
+  console.log(`App corriendo en HTTPS en el port: ${port}`);
 });
