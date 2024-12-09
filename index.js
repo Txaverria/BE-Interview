@@ -28,7 +28,11 @@ const port = process.env.PORT || 3000;
 
 const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, "utf8");
 const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, "utf8");
-const credentials = { key: privateKey, cert: certificate };
+const credentials = { 
+  key: privateKey, 
+  cert: certificate, 
+  passphrase: process.env.SSL_PASSPHRASE 
+};
 
 const httpsServer = https.createServer(credentials, app);
 
