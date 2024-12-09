@@ -70,13 +70,13 @@ A scalable API for basic arithmetic operations with features like input validati
   - [X] Sanitize inputs to guard against injection attacks.
   - [X] Protect sensitive data and handle CORS.
 
-- [ ] **Testing**: Create unit and integration tests for:
+- [X] **Testing with Jest**: Create unit and integration tests with Jest for:
 
-  - [ ] Successful operations.
-  - [ ] Edge cases (e.g., division by zero).
-  - [ ] Error-handling scenarios.
+  - [X] Successful operations.
+  - [X] Edge cases (e.g., division by zero).
+  - [X] Error-handling scenarios.
 
-- [ ] **Testing Frameworks**: Use testing frameworks like Jest or Mocha.
+![Jest Tests](./assets/jest/jest-tests.png)
 
 - [X] **API Documentation**: Provide comprehensive Swagger/OpenAPI documentation detailing endpoints, parameters, and example responses.
 
