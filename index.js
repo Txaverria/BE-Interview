@@ -73,19 +73,23 @@ connectDB();
 app.use("/api/v1", calculateV1);
 app.use("/api/v2", calculateV2);
 
-// puerto y listen creados
-const port = process.env.PORT || 3000;
+// exportar la app para testing
+if (process.env.NODE_ENV !== "test") {
+  const port = process.env.PORT || 3000;
 
-const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, "utf8");
-const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, "utf8");
-const credentials = { 
-  key: privateKey, 
-  cert: certificate, 
-  passphrase: process.env.SSL_PASSPHRASE 
-};
+  const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, "utf8");
+  const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, "utf8");
+  const credentials = { 
+    key: privateKey, 
+    cert: certificate, 
+    passphrase: process.env.SSL_PASSPHRASE 
+  };
 
-const httpsServer = https.createServer(credentials, app);
+  const httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(port, () => {
-  console.log(`App corriendo en HTTPS en el port: ${port}`);
-});
+  httpsServer.listen(port, () => {
+    console.log(`App corriendo en HTTPS en el port: ${port}`);
+  });
+}
+
+module.exports = app;
