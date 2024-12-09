@@ -5,6 +5,8 @@ const fs = require("fs");
 const https = require("https");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 // routes
 const calculateV1 = require("./routes/v1/calculate");
@@ -19,7 +21,7 @@ app.use(express.urlencoded({ extended: true })); // no es obligatoriamente neces
 
 // configurar CORS
 const corsOptions = {
-  origin: 'Este sería el domain para CORS', 
+  origin: 'Este sería el dominio para CORS', 
   methods: ["POST"], 
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
@@ -39,10 +41,30 @@ const apiLimiter = rateLimit({
   message: {
     status: "error",
     code: 429,
-    message: "Too many requests. Please try again later.",
+    message: "Demasiadas solicitudes. Por favor, inténtalo de nuevo más tarde.",
   },
 });
 app.use(apiLimiter);
+
+// configurar swagger
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Documentación del API",
+      version: "1.0.0",
+      description: "Documentación del API endpoint de calculate.js",
+    },
+    servers: [
+      {
+        url: "https://localhost:3000",
+      },
+    ],
+  },
+  apis: ["./routes/**/*.js"],
+};
+const swaggerSpec = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // conectar a mongodb
 connectDB();

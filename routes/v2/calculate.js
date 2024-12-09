@@ -5,6 +5,79 @@ const Log = require("../../models/Log");
 const redisClient = require("../../config/redis");
 const calculationSchema = require("../../validation/calculationSchema");
 
+/**
+ * @swagger
+ * /api/v2/calculate:
+ *   post:
+ *     summary: Realizar un cálculo
+ *     description: Este endpoint realiza un cálculo basado en los datos proporcionados.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - num1
+ *               - num2
+ *               - operacion
+ *             properties:
+ *               num1:
+ *                 type: number
+ *                 example: 10
+ *               num2:
+ *                 type: number
+ *                 example: 5
+ *               operacion:
+ *                 type: string
+ *                 enum: ["+", "-", "*", "/"]
+ *                 example: "+"
+ *     responses:
+ *       200:
+ *         description: Cálculo exitoso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "success"
+ *                 result:
+ *                   type: number
+ *                   example: 15
+ *       400:
+ *         description: Input inválida
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "error"
+ *                 message:
+ *                   type: string
+ *                   example: "Datos de entrada inválidos."
+ *                 errors:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                     example: "num1 debe ser un número."
+ *       404:
+ *         description: Operación no soportada
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "error"
+ *                 message:
+ *                   type: string
+ *                   example: "Operación no soportada."
+ */
 router.post("/calculate", async (req, res) => {
   const { error, value } = calculationSchema.validate(req.body, { abortEarly: false });
 
