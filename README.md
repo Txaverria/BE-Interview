@@ -64,7 +64,7 @@ A scalable API for basic arithmetic operations with features like input validati
 
   - [x] Deployed the API endpoint by building a Docker image and running it on a network where another Redis container runs. For instructions, check this [Running the Application with Docker](#running-the-application-with-docker).
 
-- [ ] **Security**: Use HTTPS for secure communication.
+- [X] **Security**: Use HTTPS for secure communication.
 
   - [ ] Implement rate-limiting to prevent abuse.
   - [ ] Sanitize inputs to guard against injection attacks.
