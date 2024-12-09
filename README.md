@@ -78,7 +78,7 @@ A scalable API for basic arithmetic operations with features like input validati
 
 - [ ] **Testing Frameworks**: Use testing frameworks like Jest or Mocha.
 
-- [ ] **API Documentation**: Provide comprehensive Swagger/OpenAPI documentation detailing endpoints, parameters, and example responses.
+- [X] **API Documentation**: Provide comprehensive Swagger/OpenAPI documentation detailing endpoints, parameters, and example responses.
 
 - [ ] **Deployment**: Deploy to a cloud platform like AWS, GCP, or Azure.
 
